@@ -1,0 +1,10 @@
+<h1 class="scoreboard-title">Top Scores</h1>
+<mat-list class="leaders">
+  <mat-list-item *ngFor="let score of scores | async">
+    {{ score.username }} - {{ score.color }} {{ score.shape }} -
+    {{ score.score }}
+  </mat-list-item>
+</mat-list>
+<div *ngIf="err" class="scoreboard-error">
+  An error occured fetching the scoreboard
+</div>

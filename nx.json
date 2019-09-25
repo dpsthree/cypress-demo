@@ -1,0 +1,24 @@
+{
+  "npmScope": "cypress-demo",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "gdg-clicker-e2e": {
+      "tags": []
+    },
+    "gdg-clicker": {
+      "tags": []
+    },
+    "api": {
+      "tags": []
+    },
+    "api-interfaces": {
+      "tags": []
+    }
+  }
+}
