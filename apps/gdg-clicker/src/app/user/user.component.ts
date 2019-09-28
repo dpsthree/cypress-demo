@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'cypress-demo-user',
@@ -15,6 +16,7 @@ export class UserComponent {
     'parallelogram',
     'triangle'
   ];
+  username = new FormControl('', Validators.required);
 
   constructor() {}
 }
