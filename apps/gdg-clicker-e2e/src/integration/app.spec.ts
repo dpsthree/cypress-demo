@@ -2,6 +2,7 @@ import {
   chooseAvatar,
   clickerButton,
   gameoverMessage,
+  leaders,
   nextButton,
   score,
   scoreboardButton,
@@ -71,7 +72,7 @@ describe('gdg-clicker', () => {
     scoreboardButton().should('be.visible');
   });
 
-  it.only('should navigate to the scoreboard', () => {
+  it('should navigate to the scoreboard', () => {
     cy.visit('/');
     usernameInput().type('@TheEvergreenDev');
     chooseAvatar('square', 'blue');
@@ -81,5 +82,11 @@ describe('gdg-clicker', () => {
     }
     scoreboardButton().click();
     scoreboardTitle().should('be.visible');
+  });
+
+  it.only('should display the scores', () => {
+    cy.visit('/scoreboard');
+    scoreboardTitle().should('be.visible');
+    leaders().should('be.visible');
   });
 });
