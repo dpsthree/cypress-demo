@@ -7,6 +7,8 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent {
+  selectedColor = '';
+  selectedShape = '';
   colorList = ['blue', 'red', 'green', 'yellow', 'pink', 'orange'];
   shapeList = [
     'square',
@@ -19,4 +21,12 @@ export class UserComponent {
   username = new FormControl('', Validators.required);
 
   constructor() {}
+
+  selectColor(color: string) {
+    this.selectedColor = color;
+  }
+
+  selectShape(shape: string) {
+    this.selectedShape = shape;
+  }
 }
