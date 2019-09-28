@@ -6,6 +6,7 @@ export const gameoverMessage = () => cy.get('.gameover', { timeout: 10000 });
 export const scoreboardButton = () => cy.get('.scoreboard-button');
 export const scoreboardTitle = () => cy.get('.scoreboard-title');
 export const leaders = () => cy.get('.leaders');
+export const scoreboardError = () => cy.get('.scoreboard-error');
 
 const avatarOfShape = (shape: string) => cy.get(`.${shape}`);
 const avatarColor = (color: string) => cy.get(`.${color}`);

@@ -5,3 +5,6 @@
     {{ score.score }}
   </mat-list-item>
 </mat-list>
+<div *ngIf="err" class="scoreboard-error">
+  An error occured fetching the scoreboard
+</div>

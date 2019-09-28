@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 import { ScoreEntry } from '@cypress-demo/api-interfaces';
 
@@ -12,8 +13,14 @@ import { AppService } from '../app.service';
 })
 export class ScoreboardComponent {
   scores: Observable<ScoreEntry[]>;
+  err: any;
 
   constructor(appService: AppService) {
-    this.scores = appService.getTopScores();
+    this.scores = appService.getTopScores().pipe(
+      catchError(err => {
+        this.err = err;
+        return of([]);
+      })
+    );
   }
 }

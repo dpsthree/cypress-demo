@@ -6,6 +6,7 @@ import {
   nextButton,
   score,
   scoreboardButton,
+  scoreboardError,
   scoreboardTitle,
   usernameInput
 } from '../support/app.po';
@@ -84,9 +85,22 @@ describe('gdg-clicker', () => {
     scoreboardTitle().should('be.visible');
   });
 
-  it.only('should display the scores', () => {
+  it('should display the scores', () => {
     cy.visit('/scoreboard');
     scoreboardTitle().should('be.visible');
     leaders().should('be.visible');
+  });
+
+  it('should handle API errors gracefully', () => {
+    cy.server();
+    cy.route({
+      method: 'GET',
+      url: '**/api/scores',
+      status: 500,
+      response: { message: 'bad' }
+    });
+    cy.visit('/scoreboard');
+    scoreboardTitle().should('be.visible');
+    scoreboardError().should('be.visible');
   });
 });
