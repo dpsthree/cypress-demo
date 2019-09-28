@@ -1,4 +1,5 @@
-<button class="clicker-button">
+<h1 class="score">Score: {{ count }}</h1>
+<button class="clicker-button" (click)="clickIt()">
   <img
     [style.transform]="'rotate(' + rotation + 'deg)'"
     src="assets/GDG-Logo.png"

@@ -14,6 +14,7 @@ export class GameComponent implements OnInit, OnDestroy {
   rotation = 0;
 
   clickIt() {
+    this.count++;
     // Adds the fun spinny bits
     this.rotation = this.rotation + spinCof + this.count;
     spinCof *= 1.15;

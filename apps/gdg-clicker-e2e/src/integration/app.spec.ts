@@ -2,6 +2,7 @@ import {
   chooseAvatar,
   clickerButton,
   nextButton,
+  score,
   usernameInput
 } from '../support/app.po';
 
@@ -30,5 +31,15 @@ describe('gdg-clicker', () => {
     chooseAvatar('square', 'blue');
     nextButton().click();
     clickerButton().should('be.visible');
+  });
+
+  it('should increment the score as the button is pressed', () => {
+    cy.visit('/');
+    usernameInput().type('@TheEvergreenDev');
+    chooseAvatar('square', 'blue');
+    nextButton().click();
+    score().should('contain.text', '0');
+    clickerButton().click();
+    score().should('contain.text', '1');
   });
 });
