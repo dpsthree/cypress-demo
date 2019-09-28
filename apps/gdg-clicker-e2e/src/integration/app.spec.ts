@@ -5,6 +5,7 @@ import {
   nextButton,
   score,
   scoreboardButton,
+  scoreboardTitle,
   usernameInput
 } from '../support/app.po';
 
@@ -57,7 +58,7 @@ describe('gdg-clicker', () => {
     gameoverMessage().should('be.visible');
   });
 
-  it.only('should disable the clicker and display the scoreboard button at the end of a game', () => {
+  it('should disable the clicker and display the scoreboard button at the end of a game', () => {
     cy.visit('/');
     usernameInput().type('@TheEvergreenDev');
     chooseAvatar('square', 'blue');
@@ -68,5 +69,17 @@ describe('gdg-clicker', () => {
     gameoverMessage().should('be.visible');
     clickerButton().should('be.disabled');
     scoreboardButton().should('be.visible');
+  });
+
+  it.only('should navigate to the scoreboard', () => {
+    cy.visit('/');
+    usernameInput().type('@TheEvergreenDev');
+    chooseAvatar('square', 'blue');
+    nextButton().click();
+    for (let x = 0; x < 100; x++) {
+      clickerButton().click();
+    }
+    scoreboardButton().click();
+    scoreboardTitle().should('be.visible');
   });
 });
