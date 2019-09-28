@@ -3,6 +3,7 @@ export const nextButton = () => cy.contains('Next');
 export const clickerButton = () => cy.get('.clicker-button');
 export const score = () => cy.get('.score');
 export const gameoverMessage = () => cy.get('.gameover', { timeout: 10000 });
+export const scoreboardButton = () => cy.get('.scoreboard-button');
 
 const avatarOfShape = (shape: string) => cy.get(`.${shape}`);
 const avatarColor = (color: string) => cy.get(`.${color}`);

@@ -1,8 +1,11 @@
 <h1 class="score">Score: {{ count }}</h1>
-<button class="clicker-button" (click)="clickIt()">
+<button [disabled]="gameOver" class="clicker-button" (click)="clickIt()">
   <img
     [style.transform]="'rotate(' + rotation + 'deg)'"
     src="assets/GDG-Logo.png"
   />
 </button>
 <p class="gameover" *ngIf="gameOver">Game Over!</p>
+<a *ngIf="scoreSubmitted" routerLink="/scoreboard">
+  <button mat-raised-button class="scoreboard-button">View Scoreboard</button>
+</a>
