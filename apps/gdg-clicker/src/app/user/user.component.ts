@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
+import { AppService } from '../app.service';
+
 @Component({
   selector: 'cypress-demo-user',
   templateUrl: './user.component.html',
@@ -20,7 +22,7 @@ export class UserComponent {
   ];
   username = new FormControl('', Validators.required);
 
-  constructor() {}
+  constructor(private appService: AppService) {}
 
   selectColor(color: string) {
     this.selectedColor = color;
@@ -28,5 +30,13 @@ export class UserComponent {
 
   selectShape(shape: string) {
     this.selectedShape = shape;
+  }
+
+  saveUser() {
+    this.appService.setUser(
+      this.username.value,
+      this.selectedColor,
+      this.selectedShape
+    );
   }
 }

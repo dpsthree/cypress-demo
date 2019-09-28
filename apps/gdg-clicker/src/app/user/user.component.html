@@ -27,6 +27,8 @@
   [disabled]="!username.valid || !selectedColor || !selectedShape"
   color="primary"
   mat-raised-button
+  (click)="saveUser()"
+  routerLink="/game"
 >
   Next
 </button>

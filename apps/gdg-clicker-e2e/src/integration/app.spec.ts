@@ -1,4 +1,9 @@
-import { chooseAvatar, nextButton, usernameInput } from '../support/app.po';
+import {
+  chooseAvatar,
+  clickerButton,
+  nextButton,
+  usernameInput
+} from '../support/app.po';
 
 describe('gdg-clicker', () => {
   it('should display usename input', () => {
@@ -17,5 +22,13 @@ describe('gdg-clicker', () => {
     usernameInput().type('@TheEvergreenDev');
     nextButton().should('be.enabled');
     usernameInput().clear();
+  });
+
+  it('navigates to the game after selecting avatar', () => {
+    cy.visit('/');
+    usernameInput().type('@TheEvergreenDev');
+    chooseAvatar('square', 'blue');
+    nextButton().click();
+    clickerButton().should('be.visible');
   });
 });
