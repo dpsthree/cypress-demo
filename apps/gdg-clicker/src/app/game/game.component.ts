@@ -12,6 +12,7 @@ export class GameComponent implements OnInit, OnDestroy {
   time = 0;
   interval: number;
   rotation = 0;
+  gameOver = false;
 
   clickIt() {
     this.count++;
@@ -26,6 +27,7 @@ export class GameComponent implements OnInit, OnDestroy {
       this.time += 0.5;
       if (this.time >= 10) {
         clearInterval(this.interval);
+        this.gameOver = true;
       }
     }, 500);
   }

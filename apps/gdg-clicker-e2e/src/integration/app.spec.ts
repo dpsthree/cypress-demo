@@ -1,6 +1,7 @@
 import {
   chooseAvatar,
   clickerButton,
+  gameoverMessage,
   nextButton,
   score,
   usernameInput
@@ -41,5 +42,17 @@ describe('gdg-clicker', () => {
     score().should('contain.text', '0');
     clickerButton().click();
     score().should('contain.text', '1');
+  });
+
+  it('should rack up a score before ending the game', () => {
+    cy.visit('/');
+    usernameInput().type('@TheEvergreenDev');
+    chooseAvatar('square', 'blue');
+    nextButton().click();
+    for (let x = 0; x < 100; x++) {
+      clickerButton().click();
+    }
+    score().should('contain.text', '100');
+    gameoverMessage().should('be.visible');
   });
 });
