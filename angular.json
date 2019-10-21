@@ -1,33 +1,33 @@
 {
   "version": 1,
   "projects": {
-    "gdg-clicker": {
+    "nwa-clicker": {
       "projectType": "application",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
       },
-      "root": "apps/gdg-clicker",
-      "sourceRoot": "apps/gdg-clicker/src",
+      "root": "apps/nwa-clicker",
+      "sourceRoot": "apps/nwa-clicker/src",
       "prefix": "cypress-demo",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/gdg-clicker",
-            "index": "apps/gdg-clicker/src/index.html",
-            "main": "apps/gdg-clicker/src/main.ts",
-            "polyfills": "apps/gdg-clicker/src/polyfills.ts",
-            "tsConfig": "apps/gdg-clicker/tsconfig.app.json",
+            "outputPath": "dist/apps/nwa-clicker",
+            "index": "apps/nwa-clicker/src/index.html",
+            "main": "apps/nwa-clicker/src/main.ts",
+            "polyfills": "apps/nwa-clicker/src/polyfills.ts",
+            "tsConfig": "apps/nwa-clicker/tsconfig.app.json",
             "aot": false,
             "assets": [
-              "apps/gdg-clicker/src/favicon.ico",
-              "apps/gdg-clicker/src/assets"
+              "apps/nwa-clicker/src/favicon.ico",
+              "apps/nwa-clicker/src/assets"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "apps/gdg-clicker/src/styles.scss"
+              "apps/nwa-clicker/src/styles.scss"
             ],
             "scripts": []
           },
@@ -35,8 +35,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/gdg-clicker/src/environments/environment.ts",
-                  "with": "apps/gdg-clicker/src/environments/environment.prod.ts"
+                  "replace": "apps/nwa-clicker/src/environments/environment.ts",
+                  "with": "apps/nwa-clicker/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -66,72 +66,64 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "gdg-clicker:build",
-            "proxyConfig": "apps/gdg-clicker/proxy.conf.json"
+            "browserTarget": "nwa-clicker:build",
+            "proxyConfig": "apps/nwa-clicker/proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "gdg-clicker:build:production"
+              "browserTarget": "nwa-clicker:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "gdg-clicker:build"
+            "browserTarget": "nwa-clicker:build"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "apps/gdg-clicker/tsconfig.app.json",
-              "apps/gdg-clicker/tsconfig.spec.json"
+              "apps/nwa-clicker/tsconfig.app.json",
+              "apps/nwa-clicker/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/gdg-clicker/**"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/nwa-clicker/**"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/gdg-clicker/jest.config.js",
-            "tsConfig": "apps/gdg-clicker/tsconfig.spec.json",
-            "setupFile": "apps/gdg-clicker/src/test-setup.ts"
+            "jestConfig": "apps/nwa-clicker/jest.config.js",
+            "tsConfig": "apps/nwa-clicker/tsconfig.spec.json",
+            "setupFile": "apps/nwa-clicker/src/test-setup.ts"
           }
         }
       }
     },
-    "gdg-clicker-e2e": {
-      "root": "apps/gdg-clicker-e2e",
-      "sourceRoot": "apps/gdg-clicker-e2e/src",
+    "nwa-clicker-e2e": {
+      "root": "apps/nwa-clicker-e2e",
+      "sourceRoot": "apps/nwa-clicker-e2e/src",
       "projectType": "application",
       "architect": {
         "e2e": {
           "builder": "@nrwl/cypress:cypress",
           "options": {
-            "cypressConfig": "apps/gdg-clicker-e2e/cypress.json",
-            "tsConfig": "apps/gdg-clicker-e2e/tsconfig.e2e.json",
-            "devServerTarget": "gdg-clicker:serve"
+            "cypressConfig": "apps/nwa-clicker-e2e/cypress.json",
+            "tsConfig": "apps/nwa-clicker-e2e/tsconfig.e2e.json",
+            "devServerTarget": "nwa-clicker:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "gdg-clicker:serve:production"
+              "devServerTarget": "nwa-clicker:serve:production"
             }
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/gdg-clicker-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/gdg-clicker-e2e/**"
-            ]
+            "tsConfig": ["apps/nwa-clicker-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/nwa-clicker-e2e/**"]
           }
         }
       }
@@ -149,9 +141,7 @@
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": [
-              "apps/api/src/assets"
-            ]
+            "assets": ["apps/api/src/assets"]
           },
           "configurations": {
             "production": {
@@ -180,10 +170,7 @@
               "apps/api/tsconfig.app.json",
               "apps/api/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/api/**"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/api/**"]
           }
         },
         "test": {
@@ -208,10 +195,7 @@
               "libs/api-interfaces/tsconfig.lib.json",
               "libs/api-interfaces/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/api-interfaces/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/api-interfaces/**"]
           }
         },
         "test": {
@@ -236,5 +220,5 @@
       "unitTestRunner": "jest"
     }
   },
-  "defaultProject": "gdg-clicker"
+  "defaultProject": "nwa-clicker"
 }

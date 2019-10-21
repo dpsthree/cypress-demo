@@ -8,10 +8,10 @@
     "nx.json": "*"
   },
   "projects": {
-    "gdg-clicker-e2e": {
+    "nwa-clicker-e2e": {
       "tags": []
     },
-    "gdg-clicker": {
+    "nwa-clicker": {
       "tags": []
     },
     "api": {

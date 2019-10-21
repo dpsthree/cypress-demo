@@ -11,7 +11,7 @@ import {
   usernameInput
 } from '../support/app.po';
 
-describe('gdg-clicker', () => {
+describe('nwa-clicker', () => {
   it('should display usename input', () => {
     cy.visit('/');
     usernameInput().should('be.visible');
@@ -53,10 +53,10 @@ describe('gdg-clicker', () => {
     usernameInput().type('@TheEvergreenDev');
     chooseAvatar('square', 'blue');
     nextButton().click();
-    for (let x = 0; x < 100; x++) {
+    for (let x = 0; x < 50; x++) {
       clickerButton().click();
     }
-    score().should('contain.text', '100');
+    score().should('contain.text', '50');
     gameoverMessage().should('be.visible');
   });
 
@@ -65,7 +65,7 @@ describe('gdg-clicker', () => {
     usernameInput().type('@TheEvergreenDev');
     chooseAvatar('square', 'blue');
     nextButton().click();
-    for (let x = 0; x < 100; x++) {
+    for (let x = 0; x < 50; x++) {
       clickerButton().click();
     }
     gameoverMessage().should('be.visible');
@@ -78,7 +78,7 @@ describe('gdg-clicker', () => {
     usernameInput().type('@TheEvergreenDev');
     chooseAvatar('square', 'blue');
     nextButton().click();
-    for (let x = 0; x < 100; x++) {
+    for (let x = 0; x < 50; x++) {
       clickerButton().click();
     }
     scoreboardButton().click();

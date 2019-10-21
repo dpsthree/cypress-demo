@@ -36,7 +36,7 @@ export class GameComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.interval = window.setInterval(() => {
       this.time += 0.5;
-      if (this.time >= 10) {
+      if (this.time >= 5) {
         clearInterval(this.interval);
         this.gameOver = true;
         this.submitScore();
